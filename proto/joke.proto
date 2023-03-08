@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package jokes;
+
+import "core.proto";
+
+message Joke {
+  int32 id = 1;
+  string text = 2;
+  repeated string tags = 3;
+  string createdAt = 4;
+}
+
+message JokesList {
+  repeated Joke joke = 1;
+}
+
+service JokeService {
+  rpc generateJoke(core.Empty) returns (Joke);
+  rpc findAll(core.Empty) returns (JokesList);
+  rpc findOne(core.EntityId) returns (Joke);
+}

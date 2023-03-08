@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package voice;
+
+import "joke.proto";
+import "core.proto";
+
+message Voice {
+  int32 id = 1;
+  string audioFilePath = 2;
+  jokes.Joke joke = 3;
+  string createdAt = 4;
+}
+
+message GenerateVoice {
+  jokes.Joke joke = 1;
+}
+
+message VoicesList {
+  repeated Voice voices = 1;
+}
+
+service VoiceService {
+  rpc generateVoice(GenerateVoice) returns (Voice);
+  rpc findAll(core.Empty) returns (VoicesList);
+  rpc findOne(core.EntityId) returns (Voice);
+}
