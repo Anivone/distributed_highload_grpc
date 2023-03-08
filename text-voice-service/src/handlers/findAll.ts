@@ -1,7 +1,7 @@
 import { UnaryHandlerFn } from "./types";
 import { Empty } from "../proto/generated/core/Empty";
-import { JokesList } from "../proto/generated/jokes/JokesList";
+import { VoicesList } from "../proto/generated/voice/VoicesList";
 
-export const findAll: UnaryHandlerFn<Empty, JokesList> = (call, callback) => {
-  callback(null, { joke: [] });
+export const findAll: UnaryHandlerFn<Empty, VoicesList> = (call, callback) => {
+  callback(null, { voices: [] });
 }

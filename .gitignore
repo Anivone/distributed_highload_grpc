@@ -1,3 +1,7 @@
 node_modules
 package-lock.json
 /random-stuff-service/src/proto/generated/
+/text-voice-service/src/proto/generated/
+/client/src/proto/generated/
+.env
+.DS_Store

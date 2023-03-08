@@ -1,14 +1,14 @@
 import { UnaryHandlerFn } from "./types";
 import { EntityId } from "../proto/generated/core/EntityId";
-import { Joke } from "../proto/generated/jokes/Joke";
+import { Voice } from "../proto/generated/voice/Voice";
 
-export const findOne: UnaryHandlerFn<EntityId, Joke> = (call, callback) => {
+export const findOne: UnaryHandlerFn<EntityId, Voice> = (call, callback) => {
   const id = call.request.id;
 
   callback(null, {
     id,
-    text: "test",
-    tags: ["test"],
+    chunkData: Buffer.from([]),
+    joke: {},
     createdAt: new Date().toISOString(),
   })
 }
